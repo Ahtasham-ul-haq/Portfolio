@@ -18,6 +18,10 @@ const links = document.querySelectorAll(".nav-link")
 
 const toggle_btn = document.querySelector(".toggle-btn")
 
+const hamburger = document.querySelector(".hamburger")
+
+
+
 window.addEventListener("scroll", () =>{
     activeLinks();
     if(!skillsPlayed) skillsCounter();
@@ -215,3 +219,15 @@ function changeTheme(isDark) {
 toggle_btn.addEventListener("click" , () => {
     changeTheme(!document.body.classList.contains("dark"));
 })
+
+// ---------------OPEN & CLOSR NAV...-----------------
+
+hamburger.addEventListener("click", () => {
+    document.body.classList.toggle("open");
+    document.body.classList.toggle("stopScrolling");
+})
+
+links.forEach(link => link.addEventListener("click" , () => {
+    document.body.classList.remove("open");
+    document.body.classList.remove("stopScrolling");
+}))
